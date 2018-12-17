@@ -29,5 +29,4 @@ class TaskCreationControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
         $this->assertEquals(1, $crawler->filter('html:contains("La tâche")')->count());
     }
-
 }

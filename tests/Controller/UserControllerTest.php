@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Dimitri
  * Date: 17/12/2018
- * Time: 00:16
+ * Time: 05:10
  */
 
 namespace App\Tests\Controller;
@@ -11,13 +11,15 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class TaskControllerTest extends WebTestCase
+class UserControllerTest extends WebTestCase
 {
-    public function testTaskPage()
+    public function testUsersListPage()
     {
         $client = static::createClient();
-
-        $client->request('GET', '/tasks');
+        $crawler = $client->request('GET', '/users', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin@admin.fr',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

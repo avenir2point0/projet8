@@ -25,7 +25,7 @@ class SecurityRegisterControllerTest extends WebTestCase
             'user[password][first]' => 'admin',
             'user[password][second]' => 'admin',
             'user[email]' => rand(0, 10000).'test@test.fr',
-            'user[roles][1]' => 'ROLE_ADMIN'
+            'user[roles][0]' => 'ROLE_USER'
         ]);
 
 

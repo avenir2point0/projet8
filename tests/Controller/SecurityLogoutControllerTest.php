@@ -29,5 +29,4 @@ class SecurityLogoutControllerTest extends WebTestCase
         $securityController = new SecurityLogoutController();
         static::assertNull($securityController->logout());
     }
-
 }

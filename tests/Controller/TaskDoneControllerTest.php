@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Dimitri
  * Date: 17/12/2018
- * Time: 00:16
+ * Time: 04:41
  */
 
 namespace App\Tests\Controller;
@@ -11,13 +11,13 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class TaskControllerTest extends WebTestCase
+class TaskDoneControllerTest extends WebTestCase
 {
-    public function testTaskPage()
+    public function testTaskDonePage()
     {
         $client = static::createClient();
 
-        $client->request('GET', '/tasks');
+        $client->request('GET', '/tasks/done');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

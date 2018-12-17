@@ -21,4 +21,21 @@ class SecurityLoginControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
+
+    public function testLogin()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/login');
+        $buttonCrawlerNode = $crawler->selectButton('Se connecter');
+        $form = $buttonCrawlerNode->form();
+        $client->submit($form, [
+            'email' => 'admin@admin.fr',
+            'password' => 'admin',
+
+        ]);
+
+
+        $this->assertEquals(302, $client->getResponse()->getStatusCode());
+    }
 }
