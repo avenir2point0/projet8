@@ -17,8 +17,8 @@ class TaskDeleteControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/tasks/2/delete', array(), array(), array(
-            'PHP_AUTH_USER' => '2331test@test.fr',
-            'PHP_AUTH_PW'   => 'admin',
+            'PHP_AUTH_USER' => 'user@user.fr',
+            'PHP_AUTH_PW'   => 'user',
         ));
 
         $crawler = $client->followRedirect();
@@ -29,8 +29,8 @@ class TaskDeleteControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/tasks/1/delete', array(), array(), array(
-            'PHP_AUTH_USER' => '2331test@test.fr',
-            'PHP_AUTH_PW'   => 'admin',
+            'PHP_AUTH_USER' => 'user@user.fr',
+            'PHP_AUTH_PW'   => 'user',
         ));
 
         $crawler = $client->followRedirect();
@@ -41,7 +41,7 @@ class TaskDeleteControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/tasks/1/delete', array(), array(), array(
-            'PHP_AUTH_USER' => '4269test@test.fr',
+            'PHP_AUTH_USER' => 'admin@admin.fr',
             'PHP_AUTH_PW'   => 'admin',
         ));
 
