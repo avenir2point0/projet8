@@ -16,8 +16,11 @@ class SecurityRegisterControllerTest extends WebTestCase
     public function testRegisterPage()
     {
         $client = static::createClient();
+        $crawler = $client->request('GET', '/users', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin@admin.fr',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
 
-        $crawler = $client->request('GET', '/users/create');
         $buttonCrawlerNode = $crawler->selectButton('Ajouter');
         $form = $buttonCrawlerNode->form();
         $client->submit($form, [

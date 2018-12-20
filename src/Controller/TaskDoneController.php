@@ -10,15 +10,17 @@ class TaskDoneController extends AbstractController
 {
     /**
      * @Route("/tasks/done", name="task_done_list")
-     * @param TaskRepository $repository
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param                TaskRepository $repository
+     * @return               \Symfony\Component\HttpFoundation\Response
      */
     public function listAction(TaskRepository $repository)
     {
         $tasks = $repository->findDoneTasks();
 
-        return $this->render('task/list.html.twig', [
+        return $this->render(
+            'task/list.html.twig', [
             'tasks' => $tasks,
-        ]);
+            ]
+        );
     }
 }

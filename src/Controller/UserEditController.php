@@ -15,10 +15,10 @@ class UserEditController extends AbstractController
     /**
      * @Route("/users/{id}/edit", name="user_edit")
      * @IsGranted("ROLE_ADMIN")
-     * @param User $user
-     * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @param                     User                         $user
+     * @param                     Request                      $request
+     * @param                     UserPasswordEncoderInterface $passwordEncoder
+     * @return                    \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(User $user, Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {

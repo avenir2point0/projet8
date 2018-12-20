@@ -10,8 +10,8 @@ class TaskToggleController extends AbstractController
 {
     /**
      * @Route("/tasks/{id}/toggle", name="task_toggle")
-     * @param Task $task
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @param                       Task $task
+     * @return                      \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function toggleTaskAction(Task $task)
     {

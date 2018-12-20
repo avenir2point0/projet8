@@ -9,6 +9,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class TaskFixtures extends AbstractFixture implements DependentFixtureInterface
 {
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $task = new Task();

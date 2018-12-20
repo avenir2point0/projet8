@@ -20,6 +20,9 @@ class UserFixtures extends AbstractFixture
         $this->passwordEncoder = $passwordEncoder;
     }
 
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $anonyme = new User();

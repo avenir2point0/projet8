@@ -12,9 +12,9 @@ class TaskEditController extends AbstractController
 {
     /**
      * @Route("/tasks/{id}/edit", name="task_edit")
-     * @param Task $task
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @param                     Task    $task
+     * @param                     Request $request
+     * @return                    \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Task $task, Request $request)
     {
@@ -30,9 +30,11 @@ class TaskEditController extends AbstractController
             return $this->redirectToRoute('task_list');
         }
 
-        return $this->render('task/edit.html.twig', [
+        return $this->render(
+            'task/edit.html.twig', [
             'form' => $form->createView(),
             'task' => $task,
-        ]);
+            ]
+        );
     }
 }

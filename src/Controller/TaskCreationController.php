@@ -13,9 +13,9 @@ class TaskCreationController extends AbstractController
 {
     /**
      * @Route("/tasks/create", name="task_create")
-     * @param Request $request
-     * @param EntityManagerInterface $entityManager
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @param                  Request                $request
+     * @param                  EntityManagerInterface $entityManager
+     * @return                 \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function createAction(Request $request, EntityManagerInterface $entityManager)
     {

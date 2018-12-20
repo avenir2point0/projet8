@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/users", name="user_list")
+     * @Route("/users",         name="user_list")
      * @IsGranted("ROLE_ADMIN")
      */
     public function listAction()
