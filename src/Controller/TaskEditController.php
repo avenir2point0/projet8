@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Task;
 use App\Form\TaskType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,6 +16,9 @@ class TaskEditController extends AbstractController
      * @param                     Task    $task
      * @param                     Request $request
      * @return                    \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Psr\Cache\InvalidArgumentException
      */
     public function editAction(Task $task, Request $request)
     {
@@ -24,6 +28,10 @@ class TaskEditController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $cache = new FilesystemAdapter();
+            $cache->delete('tasksList');
+            $cache->delete('tasksDoneList');
 
             $this->addFlash('success', 'La tâche a bien été modifiée.');
 

@@ -5,46 +5,48 @@
 {% block body %}
     <div class="container">
         <div class="col-sm-12">
-            <a href="{{ path('task_create') }}" class="btn btn-info pull-right">Créer une tâche</a>
+            <a href="{{ path('task_create') }}" class="btn btn-info pull-right my-1"><i class="fas fa-pen"></i> Créer une tâche</a>
         </div>
     </div>
     <div class="container">
         <div class="col-sm-12">
+            <div class="card-deck mb-3 text-center">
             {% for task in tasks %}
-            <div class="col-sm-4 col-lg-4 col-md-4" style="padding: 10px">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <div class="container-fluid">
-                            <h4 class="pull-right">
-                                {% if task.isDone %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal text-left">
+                                <span>{% if task.isDone %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</span>
+                                <a href="{{ path('task_edit', {'id' : task.id }) }}">{{ task.title }}</a>
                             </h4>
-                            <h4><a href="{{ path('task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
                         </div>
-                        <div class="container-fluid">
-                            <p>{{ task.content }}</p>
+                        <div class="card-body">
+                            <div class="container-fluid text-truncate">
+                                <p>{{ task.content }}</p>
+                            </div>
+                            <div class="container-fluid">
+                                <i>{{ task.user.username }}</i>
+                                <i class="pull-right">{{ task.createdAt|date ('d/m/Y') }}</i>
+                            </div>
                         </div>
-                        <div class="container-fluid">
-                            <i>{{ task.user.username }}</i>
-                            <i class="pull-right">{{ task.createdAt|date ('d/m/Y') }}</i>
+                        <div>
+                            <form action="{{ path('task_toggle', {'id' : task.id }) }}" style="display: inline-block">
+                                <button class="btn btn-success btn-sm text-left">
+                                    {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
+                                </button>
+                            </form>
+                            <form action="{{ path('task_delete', {'id' : task.id }) }} " style="display: inline-block">
+                                <button class="btn btn-danger btn-sm text-right">Supprimer</button>
+                            </form>
                         </div>
-                    </div>
-                    <div>
-                        <form action="{{ path('task_toggle', {'id' : task.id }) }}">
-                            <button class="btn btn-success btn-sm pull-right">
-                                {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
-                            </button>
-                        </form>
-                        <form action="{{ path('task_delete', {'id' : task.id }) }}">
-                            <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
-                        </form>
                     </div>
                 </div>
-            </div>
             {% else %}
                 <div class="alert alert-warning" role="alert">
-                    Il n'y a pas encore de tâche enregistrée. <a href="{{ path('task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
+                    Il n'y a pas encore de tâche enregistrée.
                 </div>
             {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
