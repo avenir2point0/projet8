@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Task;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,8 +12,9 @@ class TaskToggleController extends AbstractController
 {
     /**
      * @Route("/tasks/{id}/toggle", name="task_toggle")
-     * @param                       Task $task
-     * @return                      \Symfony\Component\HttpFoundation\RedirectResponse
+     * @IsGranted("ROLE_USER")
+     * @param Task $task
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @return \Symfony\Component\HttpFoundation\Response
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Psr\Cache\InvalidArgumentException

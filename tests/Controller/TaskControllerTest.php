@@ -17,7 +17,10 @@ class TaskControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/tasks');
+        $client->request('GET', '/tasks', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin@admin.fr',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

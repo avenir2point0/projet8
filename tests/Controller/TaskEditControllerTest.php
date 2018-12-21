@@ -16,7 +16,10 @@ class TaskEditControllerTest extends WebTestCase
     public function testTaskEditPage()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/tasks/3/edit');
+        $crawler = $client->request('GET', '/tasks/3/edit', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin@admin.fr',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
 
         $form = $crawler->selectButton('Modifier')->form();
         $form['task[title]'] = 'Titre modifié';
