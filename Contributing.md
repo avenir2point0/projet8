@@ -37,7 +37,7 @@ Proposer les modifications
 
 Fini avec les modifications ? Faites une pull request pour apporter les modifications.
 
-![notification de déploiement en prévisualisation](https://user.oc-static.com/upload/2016/09/19/14742929911757_PR.png)
+![image d'une pull request](https://user.oc-static.com/upload/2016/09/19/14742929911757_PR.png)
 
 Vous avez l'occasion de mettre un message pour expliquer les changements.
 
