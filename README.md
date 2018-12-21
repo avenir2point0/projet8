@@ -7,6 +7,7 @@ BUILD
 ======
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/avenir2point0/projet8/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/avenir2point0/projet8/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e01e951578cf49a2869fc750dd633986)](https://www.codacy.com/app/avenir2point0/projet8?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=avenir2point0/projet8&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/avenir2point0/projet8.svg?branch=master)](https://travis-ci.org/avenir2point0/projet8)
 
 INSTALLATION
 =====
