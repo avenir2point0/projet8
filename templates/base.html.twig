@@ -25,13 +25,29 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
             <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ path('homepage') }}">To Do List app</a>
-                    <img src="{{ asset('img/Logo_OpenClassrooms.png') }}" alt="OpenClassrooms" />
-                </div>
+            <a class="navbar-brand" href="{{ path('homepage') }}">To Do List app</a>
+            <img src="{{ asset('img/Logo_OpenClassrooms.png') }}" alt="OpenClassrooms" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tâches
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a href="{{ path('task_list') }}" class="dropdown-item"><i class="far fa-clipboard"></i> Consulter la liste des tâches à faire</a>
+                            <a href="{{ path('task_done_list') }}" class="dropdown-item"><i class="far fa-check-square"></i> Consulter la liste des tâches terminées</a>
+                        </div>
+                        {% endif %}
+                    </li>
+                </ul>
             </div>
+        </div>
         </nav>
 
         <!-- Page Content -->
@@ -49,7 +65,7 @@
                     {% endif %}
 
                     {% if not app.user and 'login' != app.request.attributes.get('_route') %}
-                    <a href="{{ path('login') }}" class="btn btn-success"><i class="fas fa-user-circle"></i> Se connecter</a>
+                    <a href="{{ path('login') }}" class="btn btn-success my-1"><i class="fas fa-user-circle"></i> Se connecter</a>
                     {% endif %}
                 </div>
             </div>

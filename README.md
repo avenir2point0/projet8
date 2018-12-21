@@ -30,7 +30,7 @@ Ensuite demarrez l'application avec :
 
         php bin/console server:run
         
-Rendez vous sur localhost:8000 dans la barre de recherche du navigateur pour profitez de l'appli !
+Rendez vous sur localhost:8000 dans la barre de recherche du navigateur pour profiter de l'appli !
 
 
 TEST
@@ -44,8 +44,8 @@ Recréez la base de données comme montré plus haut et ensuite lancez les tests
 
         php bin/phpunit tests\ --coverage-html tests/test-coverage
         
-NB : il faut une base de données vide avant de lancer les fixtures, au cas où si vous avez déjà utilisé la base de données de test, lancez :
+NB : il faut une base de données vide avant de lancer les tests, au cas où si vous avez déjà utilisé la base de données de test, lancez :
 
     php bin/console d:f:l --purge-with-truncate
     
-Ensuite, allez dans le dossier test/test-coverage, et ouvez le fichier dashbord.html pour voir les résultats
+Ensuite, allez dans le dossier test/test-coverage, et ouvez le fichier dashbord.html pour voir les résultats.
