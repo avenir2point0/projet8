@@ -13,6 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table("user")
  * @ORM\Entity
  * @UniqueEntity("email")
+ * @UniqueEntity("username")
  */
 class User implements UserInterface
 {
@@ -30,15 +31,15 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\Column(type="string",     length=255)
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez saisir un mot de passe.")
      */
     private $password;
 
     /**
-     * @ORM\Column(type="string",     length=60, unique=true)
+     * @ORM\Column(type="string", length=60, unique=true)
      * @Assert\NotBlank(message="Vous devez saisir une adresse email.")
-     * @Assert\Email(message="Le      format de l'adresse n'est pas correcte.")
+     * @Assert\Email(message="Le format de l'email est incorrect.")
      */
     private $email;
 

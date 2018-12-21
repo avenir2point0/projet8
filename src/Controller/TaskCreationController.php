@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Task;
 use App\Form\TaskType;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,6 +15,7 @@ class TaskCreationController extends AbstractController
 {
     /**
      * @Route("/tasks/create", name="task_create")
+     * @IsGranted("ROLE_USER")
      * @param                  Request                $request
      * @param                  EntityManagerInterface $entityManager
      * @return                 \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
