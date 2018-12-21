@@ -17,9 +17,25 @@ class TaskToggleControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/tasks/3/toggle');
+        $crawler = $client->request('GET', '/tasks/3/toggle', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin@admin.fr',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
         $crawler = $client->followRedirect();
 
         $this->assertSame(1, $crawler->filter('html:contains("faite.")')->count());
+    }
+
+    public function testTaskToggleUnDone()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/tasks/3/toggle', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin@admin.fr',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
+        $crawler = $client->followRedirect();
+
+        $this->assertSame(1, $crawler->filter('html:contains("faire.")')->count());
     }
 }

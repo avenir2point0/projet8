@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,9 +14,10 @@ class TaskEditController extends AbstractController
 {
     /**
      * @Route("/tasks/{id}/edit", name="task_edit")
-     * @param                     Task    $task
-     * @param                     Request $request
-     * @return                    \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @IsGranted("ROLE_USER")
+     * @param Task $task
+     * @param  Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @return \Symfony\Component\HttpFoundation\Response
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Psr\Cache\InvalidArgumentException

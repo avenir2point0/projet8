@@ -16,9 +16,9 @@ class TaskCreationController extends AbstractController
     /**
      * @Route("/tasks/create", name="task_create")
      * @IsGranted("ROLE_USER")
-     * @param                  Request                $request
-     * @param                  EntityManagerInterface $entityManager
-     * @return                 \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @param  Request $request
+     * @param  EntityManagerInterface $entityManager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @return \Symfony\Component\HttpFoundation\Response
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Psr\Cache\InvalidArgumentException

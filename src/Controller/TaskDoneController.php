@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\TaskRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,8 +12,9 @@ class TaskDoneController extends AbstractController
 {
     /**
      * @Route("/tasks/done", name="task_done_list")
-     * @param                TaskRepository $repository
-     * @return               \Symfony\Component\HttpFoundation\Response
+     * @IsGranted("ROLE_USER")
+     * @param   TaskRepository $repository
+     * @return  \Symfony\Component\HttpFoundation\Response
      * @return \Symfony\Component\HttpFoundation\Response
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Psr\Cache\InvalidArgumentException

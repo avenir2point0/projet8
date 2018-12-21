@@ -12,21 +12,18 @@
     </div>
     <div class="container">
         <div class="col-sm-12">
-            <div class="card-deck mb-3 text-center">
-            {% for task in tasks %}
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-header text-truncate">
+            <div class="card-deck mb-12 text-center">
+                <div class="col-md-12">
+                    <div class="card mb-12 shadow-sm">
+                        <div class="card-header">
                             <h4 class="my-0 font-weight-normal text-left">
-                                <a href="{{ path('task_edit', {'id' : task.id }) }}" class="btn btn-info my-1"><i class="fas fa-edit"></i></a>
                                 <span>{% if task.isDone %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</span>
-                                <a href="{{ path('task_details', {'id' : task.id }) }}">{{ task.title }}</a>
-
+                                <a href="{{ path('task_edit', {'id' : task.id }) }}">{{ task.title }}</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <div class="container-fluid text-truncate">
-                                <p>{{ task.content }}</p>
+                            <div class="container-fluid">
+                                <p>{{ task.content|raw }}</p>
                             </div>
                             <div class="container-fluid">
                                 <i>{{ task.user.username }}</i>
@@ -39,17 +36,12 @@
                                     {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
                                 </button>
                             </form>
-                            <form action="{{ path('task_delete', {'id' : task.id }) }} " style="display: inline-block" onsubmit="return confirm('Etes vous sûr ?')">
+                            <form action="{{ path('task_delete', {'id' : task.id }) }} " style="display: inline-block">
                                 <button class="btn btn-danger btn-sm text-right">Supprimer</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            {% else %}
-                <div class="alert alert-warning" role="alert">
-                    Il n'y a pas encore de tâche enregistrée.
-                </div>
-            {% endfor %}
             </div>
         </div>
     </div>

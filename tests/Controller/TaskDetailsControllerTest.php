@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Dimitri
- * Date: 17/12/2018
- * Time: 04:41
+ * Date: 22/12/2018
+ * Time: 01:28
  */
 
 namespace App\Tests\Controller;
@@ -11,17 +11,17 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class TaskDoneControllerTest extends WebTestCase
+class TaskDetailsControllerTest extends WebTestCase
 {
-    public function testTaskDonePage()
+    public function testTaskDetailsPage()
     {
         $client = static::createClient();
-
-        $client->request('GET', '/tasks/done', array(), array(), array(
+        $crawler = $client->request('GET', '/task/4', array(), array(), array(
             'PHP_AUTH_USER' => 'admin@admin.fr',
             'PHP_AUTH_PW'   => 'admin',
         ));
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
+
 }

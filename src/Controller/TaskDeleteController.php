@@ -12,9 +12,9 @@ class TaskDeleteController extends AbstractController
 {
     /**
      * @Route("/tasks/{id}/delete", name="task_delete")
-     * @param                       Task                   $task
-     * @param                       EntityManagerInterface $entityManager
-     * @return                      \Symfony\Component\HttpFoundation\RedirectResponse
+     * @param  Task $task
+     * @param  EntityManagerInterface $entityManager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @return \Symfony\Component\HttpFoundation\Response
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Psr\Cache\InvalidArgumentException
