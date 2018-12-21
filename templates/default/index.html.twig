@@ -7,10 +7,9 @@
 {% block body %}
 
     <div class="row">
+        {% if is_granted('ROLE_USER') %}
         <div class="col-sm-12 col-md-3 m-1">
-            {% if app.user %}
                 <a href="{{ path('task_create') }}" class="btn btn-success"><i class="fas fa-pen"></i> Créer une nouvelle tâche</a>
-            {% endif %}
         </div>
         <div class="col-sm-12 col-md-3 m-1">
             <a href="{{ path('task_list') }}" class="btn btn-info"><i class="far fa-clipboard"></i> Consulter la liste des tâches à faire</a>
@@ -18,5 +17,6 @@
         <div class="col-sm-12 col-md-3 m-1">
             <a href="{{ path('task_done_list') }}" class="btn btn-secondary"><i class="far fa-check-square"></i> Consulter la liste des tâches terminées</a>
         </div>
+        {% endif %}
     </div>
 {% endblock %}
